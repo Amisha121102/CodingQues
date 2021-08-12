@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+void input(int arr[],int n){
+    for(int i=0;i<n;i++){
+        cout<<"enter "<<i<<" element"<<endl;
+        cin>>arr[i];
+    }
+}
+void print(int arr[], int n){
+    for(int i=0;i<n;i++){
+        cout<<"element at "<<i<<" is "<<arr[i]<<endl;
+    }
+}
+int subArraySum(int arr[], int n, int sum)
+{
+    int flag = 0;
+    for(int i=0;i<n;i++){
+    int curr_sum = arr[i];
+     for(int j=i+1;j<n;j++){
+         curr_sum += arr[j];
+         if(curr_sum == sum){
+             cout<<"subarray exists with sum = 0"<<endl;
+             flag = 1;
+             return flag;
+         }
+     }
+    }
+        cout<<"subarray doesnt exists with sum = 0"<<endl;
+}
+
+// Driver Code
+int main()
+{
+    int n;
+    cout<<"enter number of elements"<<endl;
+    cin>>n;
+	int arr[n];
+	int sum = 0;
+	input(arr,n);
+	print(arr,n);
+	subArraySum(arr, n, sum);
+	return 0;
+}
